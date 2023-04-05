@@ -1,0 +1,11 @@
+.no-results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.no-results p {
+    font-size: 20px;
+    font-weight: bold;
+}

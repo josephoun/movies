@@ -1,0 +1,25 @@
+.movie-item .read-more-btn {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+    padding: 6px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    width: 100%;
+    margin: 10px 10px 10px 0;
+    transition: background-color 0.3s ease;
+    border-radius: 8px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.movie-item .read-more-btn:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.movie-item a {
+    text-decoration: none;
+}

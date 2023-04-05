@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component should match snapshot 1`] = `
+<div>
+  <header>
+    <a
+      href="/"
+    >
+      <div
+        class="logo"
+      >
+        Next | Movies
+      </div>
+    </a>
+  </header>
+</div>
+`;

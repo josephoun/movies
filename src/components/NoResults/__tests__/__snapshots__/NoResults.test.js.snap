@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NoResults component should match snapshot 1`] = `
+<div>
+  <div
+    class="no-results"
+    data-testid="no-match"
+  >
+    <p>
+      No matching results
+    </p>
+  </div>
+</div>
+`;

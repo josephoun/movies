@@ -8,19 +8,27 @@ import {FaArrowLeft, FaStar} from "react-icons/fa";
 
 function MovieDetails() {
     let { id } = useParams<string>();
+    const [loading, setLoading] = useState(false);
 
     const [movie, setMovie] = useState<MovieType>();
-
-    useEffect(() => {
-        async function fetchMovieDetails() {
+    async function fetchMovieDetails() {
+        try {
+            setLoading(true);
             if (!id) {
                 return
             }
             const data = await getMovieDetails(id);
             setMovie(data[0]);
+        } catch (err) {
+            setLoading(false);
+            console.log(err);
         }
 
+    }
+
+    useEffect(() => {
         fetchMovieDetails().then(() => {
+            setLoading(false)
         });
     }, [id]);
 
@@ -33,13 +41,20 @@ function MovieDetails() {
                              <img data-testid={`movieImage-${movie.id}`} src={movie.image} alt={movie.title} />
                         </div>
                         <div className="movie-info">
-                            <h2>{movie.title}</h2>
-                            <p className="rating" data-testid={`movieRating-${movie.id}`}>
-                                <FaStar/> {movie.rating} <span>/10</span>
-                            </p>
-                            <div className="synopsis" data-testid={`movieSyn-${movie.id}`}>
-                                <p dangerouslySetInnerHTML={{ __html: movie.synopsis }}></p>
-                            </div>
+                            <h2>{movie.title || 'Untitled'}</h2>
+                            {
+                                movie.rating &&  (
+                                <p className="rating" data-testid={`movieRating-${movie.id}`}>
+                                    <FaStar/> {movie.rating} <span>/10</span>
+                                </p>
+                            )}
+                            {
+                                movie.synopsis && (
+                                    <div className="synopsis" data-testid={`movieSyn-${movie.id}`}>
+                                        <p dangerouslySetInnerHTML={{ __html: movie.synopsis }}></p>
+                                    </div>
+                                )
+                            }
 
                             <Link to="/" className="back-link">
                                 <div data-testid={`backButton`} className="back-btn">
@@ -52,7 +67,9 @@ function MovieDetails() {
 
                 </>
             ) : (
-                <p>Loading...</p>
+                <div>
+                    { loading ? (<p>Loading...</p>) : 'Unable to Fetch Movie Details'}
+                </div>
             )}
         </div>
 

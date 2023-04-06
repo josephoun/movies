@@ -10,6 +10,7 @@
 }
 
 .movie-list li {
+    max-width: 265px;
     list-style: none;
     background: white;
     text-align: center;

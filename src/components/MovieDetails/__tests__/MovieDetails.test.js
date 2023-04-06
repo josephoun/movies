@@ -12,6 +12,7 @@ describe("MovieDetails component", () => {
         api.getMovieDetails.mockResolvedValueOnce([{
             id: 1,
             title: "Mock Movie Title",
+            released: "2001",
             rating: "9.9",
             image: "http://example.com/poster.jpg",
             synopsis: "http://example.com/poster.jpg",
@@ -25,10 +26,10 @@ describe("MovieDetails component", () => {
             </MemoryRouter>
         );
 
-        await screen.findByText('Mock Movie Title');
+        await screen.findByText('Mock Movie Title (2001)');
         expect(api.getMovieDetails).toHaveBeenCalledWith("1");
 
-        const title = await screen.findByText("Mock Movie Title");
+        const title = await screen.findByText("Mock Movie Title (2001)");
         const image = await screen.getByTestId("movieImage-1");
         const rating = await screen.getByTestId("movieRating-1");
         const synopsis = await screen.getByTestId("movieSyn-1");

@@ -4,4 +4,5 @@ export type MovieType = {
     image: string;
     rating: string;
     synopsis: string;
+    released: string;
 };

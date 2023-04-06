@@ -4,7 +4,8 @@ import {getMovieDetails} from "../../api";
 import {Link, useParams} from "react-router-dom";
 import "./style.css";
 import {MovieType} from "../../types/MovieType";
-import {FaArrowLeft, FaStar} from "react-icons/fa";
+import {FaArrowLeft, FaSpinner, FaStar} from "react-icons/fa";
+import MovieTitle from "../MovieTitle/MovieTitle";
 
 function MovieDetails() {
     let { id } = useParams<string>();
@@ -41,7 +42,9 @@ function MovieDetails() {
                              <img data-testid={`movieImage-${movie.id}`} src={movie.image} alt={movie.title} />
                         </div>
                         <div className="movie-info">
-                            <h2>{movie.title || 'Untitled'}</h2>
+                            <h3>
+                                <MovieTitle movie={movie}/>
+                            </h3>
                             {
                                 movie.rating &&  (
                                 <p className="rating" data-testid={`movieRating-${movie.id}`}>
@@ -68,7 +71,9 @@ function MovieDetails() {
                 </>
             ) : (
                 <div>
-                    { loading ? (<p>Loading...</p>) : 'Unable to Fetch Movie Details'}
+                    { loading ? (<p>
+                        <FaSpinner className="fa-spin" />
+                    </p>) : 'Unable to Fetch Movie Details'}
                 </div>
             )}
         </div>

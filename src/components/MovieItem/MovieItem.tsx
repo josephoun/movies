@@ -3,6 +3,7 @@ import React from "react";
 import {MovieType} from "../../types/MovieType";
 import "./style.css";
 import {FaArrowRight} from "react-icons/fa";
+import MovieTitle from "../MovieTitle/MovieTitle";
 
 type MovieItemPropsType = {
     movie: MovieType;
@@ -15,7 +16,9 @@ export default function MovieItem({movie} : MovieItemPropsType) {
                 <img src={movie.image} alt={movie.title} />
             </Link>
             <div>
-                <h3>{movie.title || 'Untitled'}</h3>
+                <h3>
+                    <MovieTitle movie={movie}/>
+                </h3>
                 <div>
                     {
                         movie.rating && (

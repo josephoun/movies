@@ -27,16 +27,6 @@ describe("MovieItem component", () => {
             { id: 1, title: "Movie 1" }
         ]);
         const {getByTestId} =  render(
-            // // <MemoryRouter >
-            //     <Router history={history} initialEntries={["/"]}>
-            //         <Routes>
-            //             <Route path="/" element={<MoviesList/>}/>
-            //             <Route path="/movie/:id" element={<MovieDetails/>}/>
-            //         </Routes>
-            //     </Router>
-            //
-            // // </MemoryRouter>
-
             <Router location={history.location} navigator={history}>
                 <MovieItem movie={{id: 1, title: "Movie 1", synopsis: "SYN-1", rating: "RATING-1"}} />
             </Router>
@@ -52,5 +42,5 @@ describe("MovieItem component", () => {
 
         expect(history.location.pathname).toBe("/movie/1");
     });
-});
+})
 

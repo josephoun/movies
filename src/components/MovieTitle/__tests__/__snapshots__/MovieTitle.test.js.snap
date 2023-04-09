@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieTitle component should match snapshot with title and released 1`] = `
+<div>
+  FAKE_TITLE (FAKE_RELEASED)
+</div>
+`;
+
+exports[`MovieTitle component should match snapshot with title and without released 1`] = `
+<div>
+  FAKE_TITLE
+</div>
+`;
+
+exports[`MovieTitle component should match snapshot without title and without released 1`] = `
+<div>
+  Untitled
+</div>
+`;
